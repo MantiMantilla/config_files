@@ -73,6 +73,10 @@ Git is a distributed version control system used mainly for software development
 
 GitHub CLI (`gh`) is a command line tool for managing remote repositories hosted on GitHub.
 
+#### 1.2.2 LazyGit
+
+TUI for Git repo management. Used to integrate with LunarVim.
+
 ### 1.3 Ranger
 
 Terminal based file explorer with vim-like bindings.
