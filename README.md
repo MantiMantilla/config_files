@@ -85,11 +85,11 @@ Micromamba is a lightweight package manager used primarily for Python and R envi
 
 Preconfigured Neovim environment. Includes themes, a plugin manager, versatile default plugins, completion tools, git integration, and more.
 
-### 1.5.1 NodeJS
+#### 1.5.1 NodeJS
 
 A runtime environment for JavaScript. Should be installed through nvm and not directly.
 
-### 1.5.2 Rust
+#### 1.5.2 Rust
 
 A compiled language for low-level software development. Can be installed through rust-up.
 
