@@ -132,3 +132,11 @@ An online store for video games. Runs Windows games on Linux through the Proton 
 ## 3. DNF
 
 The Fedora package manager. I make minor changes to the config for convenience and faster installs.
+
+## 4. OBS
+
+A screencasting and streaming app with scene compositing features.
+
+### 4.1 MESA Hardware Encoding
+
+Freeworld drivers to enable H265 encoding on AMD graphics cards.
