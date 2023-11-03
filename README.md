@@ -10,6 +10,14 @@ cd
 git clone git@github.com:MantiMantilla/config_files.git
 ```
 
+Update the system before setting any of this software up.
+
+```zsh
+nobara-sync
+# or
+# sudo dnf update
+```
+
 ## 1. Kitty
 
 Kitty is a hardware accelerated, highly customizable graphical terminal emulator.
@@ -153,8 +161,15 @@ Preconfigured Neovim environment. Includes themes, a plugin manager, versatile d
 
 ```zsh
 LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
-cd ~/.config/lvim
-ln -s $HOME/config_files/lvim/config.lua ./config.lua
+cd ~/.config
+ln -s $HOME/config_files/lvim/config.lua ./lvim/config.lua
+```
+
+For LunarVim to be available as an application in context menus or in GNOME search, link the included (in it's installation path) `.desktop` to where it can be detected.
+
+```zsh
+cd
+ln -s $HOME/.local/share/lunarvim/lvim/utils/desktop/lvim.desktop $HOME/.local/share/applications/lvim.desktop
 ```
 
 #### 1.5.1 nvm / NodeJS
@@ -270,3 +285,11 @@ A screencasting and streaming app with scene compositing features.
 ### 6.1 MESA Hardware Encoding
 
 Freeworld drivers to enable H265 encoding on AMD graphics cards.
+
+## 7. Timeshift
+
+An application included with Nobara that backs up BTRFS drives.
+
+## 8. OpenTabletDriver
+
+An application included with Nobara that manages tablet devices (such as Huion and Wacom). Replaces the Wacom interface in GNOME Settings.
