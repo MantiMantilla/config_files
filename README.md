@@ -186,8 +186,9 @@ You may need to restart your shell.
 Simple document viewer with vim-like motions. Integrates with VimTex in LunarVim for a versatile development experience for the LaTeX language.
 
 ```zsh
+cd ~/.config/
 sudo dnf install zathura zathura-pdf-mupdf
-
+ln -s $HOME/config_files/zathura/zathurarc ./zathura/zathurarc
 ```
 
 ### 1.6 Docker
