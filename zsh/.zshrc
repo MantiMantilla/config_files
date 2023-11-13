@@ -134,6 +134,11 @@ else
     alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
 fi
 unset __mamba_setup
-
-alias mamba="$HOME/miniforge3/bin/mamba"
 # <<< mamba initialize <<<
+
+# alias miniforge mamba for env export ONLY
+alias mamba="$HOME/miniforge3/bin/mamba"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

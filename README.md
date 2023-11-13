@@ -153,6 +153,15 @@ micromamba shell completion
 ln -s $HOME/config_files/mamba/.mambarc ./.mambarc
 ```
 
+You may also want to install miniforge. Currently, exporting an environment that includes pip packages is unsupported. When installing, do not enable mamba initialization as the `.zshrc` already addresses this with an alias.
+
+```zsh
+cd
+wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+bash Miniforge3-$(uname)-$(uname -m).sh
+rm Miniforge3-$(uname)-$(uname -m).sh
+```
+
 Restart your shell for changes to take effect.
 
 ### 1.5 LunarVim
@@ -244,6 +253,20 @@ A prettier alternative to the `ls` command.
 
 ```zsh
 sudo dnf install lsd
+```
+
+#### 1.7 SDKMAN!
+
+An SDK installer and manager for UNIX systems. Can be used to install different JDK versions and the Spring Boot CLI, among others.
+
+```zsh
+curl -s "https://get.sdkman.io" | bash
+```
+
+Tools like Spring Boot CLI can be installed as follows:
+
+```zsh
+sdk install springboot
 ```
 
 ## 2. GNOME
