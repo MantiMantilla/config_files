@@ -134,4 +134,6 @@ else
     alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
 fi
 unset __mamba_setup
+
+alias mamba="$HOME/miniforge3/bin/mamba"
 # <<< mamba initialize <<<
