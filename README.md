@@ -101,6 +101,14 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 ln -s $HOME/config_files/zsh/.p10k.zsh .p10k.zsh
 ```
 
+##### 1.1.1.2 ZSH Syntax Highlighting
+
+The plugin is already loaded from this `.zshrc`. Just clone the repo so OMZ can find it.
+
+```zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
 ### 1.2 Git
 
 Git is a distributed version control system used mainly for software development. For proper commit signatures, set up with ssh-agent.
