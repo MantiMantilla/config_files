@@ -116,7 +116,6 @@ Git is a distributed version control system used mainly for software development
 ```zsh
 git config --global user.name "Alejo Mantilla"
 git config --global user.email "<user>@protonmail.com"
-git config --global gpg.format ssh
 ```
 
 To set up a secure ssh connection to remote Git repositories, you must generate and register an SSH key.
@@ -124,6 +123,8 @@ To set up a secure ssh connection to remote Git repositories, you must generate 
 ```zsh
 ssh-keygen -t ed25519 -C "alejomantilla@protonmail.com"
 ssh-add ~/.ssh/id_ed25519
+git config --global gpg.format ssh
+git config --global user.signingkey ~/.ssh/id_ed25519.pub 
 ```
 
 #### 1.2.1 GitHub CLI
@@ -133,6 +134,9 @@ GitHub CLI (`gh`) is a command line tool for managing remote repositories hosted
 ```zsh
 sudo dnf install gh
 gh auth login
+gh ssh-key add ~/.ssh/id_ed25519.pub
+gh auth refresh -h github.com -s admin:ssh_signing_key
+gh ssh-key add ~/.ssh/id_ed25519.pub --type signing
 ```
 
 Follow the configuration prompts. Make sure to set up SSH as the preferred protocol, and to pick the previously created SSH key for authentication.
