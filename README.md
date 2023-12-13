@@ -41,27 +41,34 @@ sudo dnf remove nautilus-extension-gnome-terminal
 ```
 
 ```zsh
+nautilus -q
+glib-compile-schemas /usr/share/glib-2.0/schemas
+```
+
+```zsh
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal keybindings '<Ctrl><Alt>t'
 ```
 
 ```zsh
 sudo dnf remove gnome-terminal
-ln -s /usr/bin/kitty /usr/bin/gnome-terminal
+sudo ln -s /usr/bin/kitty /usr/bin/gnome-terminal
 ```
 
 Kitty is not compatible with a lot of patched Nerd-Fonts. I recommend the [CascadiaCode](https://github.com/ryanoasis/nerd-fonts/releases) fonts, they are referenced in the Kitty config.
 
 ```zsh
-wget -qO - https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.tar.xz | sudo tar -xJ -C /usr/share/fonts/
-rm /usr/share/fonts/LICENSE /usr/share/fonts/readme.md /usr/share/fonts/README.md
+sudo mkdir /usr/share/fonts/cascadia-nf
+wget -qO - https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.tar.xz | sudo tar -xJ -C /usr/share/fonts/cascadia-nf/
+sudo rm /usr/share/fonts/cascadia-nf/LICENSE /usr/share/fonts/cascadia-nf/readme.md /usr/share/fonts/cascadia-nf/README.md
 ```
 
-Link to this config (you may need to delete the `$HOME/.config/kitty` directory):
+Link to this config (you may need to delete the `$HOME/.config/kitty/kitty.conf` file):
 
 ```zsh
 cd ~/.config/
-ln -s $HOME/config_files/kitty ./kitty
+rm kitty/kitty.conf
+ln -s $HOME/config_files/kitty/kitty.conf ./kitty/kitty.config
 ```
 
 ### 1.1 Zsh
@@ -77,6 +84,10 @@ sudo dnf remove util-linux-user
 ```
 
 Log out and log back in for the changes to take effect. When running zsh for the first time, don't configure it. OMZ will take care of that.
+
+```zsh
+gnome-session-quit
+```
 
 #### 1.1.1 Oh My Zsh
 
@@ -167,7 +178,6 @@ Micromamba is a lightweight package manager CLI utility used primarily for Pytho
 ```zsh
 cd
 "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
-micromamba shell completion
 ln -s $HOME/config_files/mamba/.mambarc ./.mambarc
 ```
 
@@ -192,7 +202,7 @@ cd ~/.config
 ln -s $HOME/config_files/lvim/config.lua ./lvim/config.lua
 ```
 
-For LunarVim to be available as an application in context menus or in GNOME search, link the included (in it's installation path) `.desktop` to where it can be detected.
+For LunarVim to be available as an application in context menus or in GNOME search, link the included (in it's installation path) `.desktop` to where it can be detected. You will also need to add the `$HOME/bin/` and `$HOME/.local/bin/` directories to the PATH variable. I recommend doing so in the `.zshenv` file.
 
 ```zsh
 cd
@@ -302,6 +312,93 @@ Minor GTK settings.
 ### 2.3 GNOME Extensions
 
 Third-party modifications to GNOME for ease of use and appearance.
+
+#### 2.3.1 Awesome Tiles
+
+- `Gap Between Window and Workspace`: 0
+- `Keybind Iterate timeout`: 1000
+- `Gap Size Increments`: 5
+- `Gaps Between Windows`: `false`
+
+#### 2.3.2 Blur my Shell
+
+**General**:
+- `Sigma`: 0
+- `Brightness`: 0
+- `Hack level`: High performances
+
+**Panel**:
+- `Customize properties`: `true`
+- `Sigma`: 0
+- `Brightness`: 0
+- `Static blur`: `true`
+
+**Overview**:
+*Background*
+- `Customize properties`: `true`
+- `Sigma`: 0
+- `Brightness`: 0
+
+*Application folder*
+- `Customize properties`: `true`
+- `Sigma`: 38
+- `Brightness`: 0.74
+- `Application Folder Dialogs Style`: Transparent
+
+#### 2.3.3 Gnome 4x UI Improvements
+
+- `Desktop thumbnails scale`: 300%
+- `Display Firefox's PIP ...`: `false`
+
+#### 2.3.4 Unite
+
+General: all options `false`, hide everything
+
+#### 2.3.5 Appindicator and KStatusNotifierItem Support
+
+All defaults.
+
+#### 2.3.6 Desktop Icons NG 
+
+Hide everything except for hidden files.
+
+#### 2.3.7 Gesture Improvements
+
+All defaults.
+
+#### 2.3.8 Just Perfection
+
+**Visibility**:
+- `Panel`: `false`
+- `Panel in Overview`: `true`
+- `Activities Button`: `false`
+- `App Menu`: `false`
+- `App Menu Label`: `false`
+- `Weather`: `false`
+- `Events`: `false`
+- `Search`: `false`
+- `Dash`: `false`
+- `Dash Separator`: `false`
+- `Applications Button`: `false`
+- `Window picker caption`: `false`
+- `Ripple Box`: `false`
+- `Screenshot Button`: `false`
+
+**Icons**:
+- `Window picker icon`: `false`
+
+**Behavior**:
+- `Double super to app grid`: `false`
+- `Popup Delay`: `false`
+- `Startup Status`: Desktop
+
+**Customize**:
+- `Workspace Switcher Size`: 17%
+- `Animation`: Faster
+
+#### 2.3.9 Supergfxctl-gex
+
+Use only when dGPU available.
 
 ### 2.4 Login Background Image
 
