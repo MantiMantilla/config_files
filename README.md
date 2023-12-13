@@ -114,11 +114,17 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 Git is a distributed version control system used mainly for software development. For proper commit signatures, set up with ssh-agent.
 
 ```zsh
-git config --global user.name "MantiMantilla"
+git config --global user.name "Alejo Mantilla"
 git config --global user.email "<user>@protonmail.com"
+git config --global gpg.format ssh
 ```
 
-To set up a secure ssh connection to remote Git repositories, follow the steps from [this link](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+To set up a secure ssh connection to remote Git repositories, you must generate and register an SSH key.
+
+```zsh
+ssh-keygen -t ed25519 -C "alejomantilla@protonmail.com"
+ssh-add ~/.ssh/id_ed25519
+```
 
 #### 1.2.1 GitHub CLI
 
@@ -129,7 +135,7 @@ sudo dnf install gh
 gh auth login
 ```
 
-Follow the configuration prompts. Make sure to set up SSH as the preferred protocol.
+Follow the configuration prompts. Make sure to set up SSH as the preferred protocol, and to pick the previously created SSH key for authentication.
 
 #### 1.2.2 LazyGit
 
