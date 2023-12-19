@@ -313,12 +313,12 @@ Minor GTK settings.
 
 Third-party modifications to GNOME for ease of use and appearance.
 
-#### 2.3.1 Awesome Tiles
+#### 2.3.1 Tactile
 
-- `Gap Between Window and Workspace`: 0
-- `Keybind Iterate timeout`: 1000
-- `Gap Size Increments`: 5
-- `Gaps Between Windows`: `false`
+- Layout 1: 1 X 2
+- Layout 2: 2 X 2
+- Layout 3: 3 X 3
+- Layout 4: 1 X 3
 
 #### 2.3.2 Blur my Shell
 
