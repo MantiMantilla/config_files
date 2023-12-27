@@ -431,3 +431,11 @@ An application included with Nobara that backs up BTRFS drives.
 ## 8. OpenTabletDriver
 
 An application included with Nobara that manages tablet devices (such as Huion and Wacom). Replaces the Wacom interface in GNOME Settings.
+
+## 9. LibreOffice
+
+Office suite included in most Linux distros. Configuration makes it similar to Microsoft Office.
+
+- Icon Theme: Colibre Dark SVG
+- User Interface: Tabbed
+- Application Colors: LibreOffice Dark
