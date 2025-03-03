@@ -60,14 +60,14 @@ Kitty is not compatible with a lot of patched Nerd-Fonts. I recommend the [Casca
 ```zsh
 sudo mkdir /usr/share/fonts/cascadia-nf
 wget -qO - https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.tar.xz | sudo tar -xJ -C /usr/share/fonts/cascadia-nf/
-sudo rm /usr/share/fonts/cascadia-nf/LICENSE /usr/share/fonts/cascadia-nf/readme.md /usr/share/fonts/cascadia-nf/README.md
+sudo rm /usr/share/fonts/cascadia-nf/LICENSE /usr/share/fonts/cascadia-nf/README.md
 ```
 
 Link to this config (you may need to delete the `$HOME/.config/kitty/kitty.conf` file):
 
 ```zsh
 cd ~/.config/
-rm kitty/kitty.conf
+rm ./kitty/kitty.config
 ln -s $HOME/config_files/kitty/kitty.conf ./kitty/kitty.config
 ```
 
