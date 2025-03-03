@@ -68,7 +68,7 @@ Link to this config (you may need to delete the `$HOME/.config/kitty/kitty.conf`
 ```zsh
 cd ~/.config/
 rm ./kitty/kitty.config
-ln -s $HOME/config_files/kitty/kitty.conf ./kitty/kitty.config
+ln -s $HOME/config_files/kitty/kitty.conf ./kitty/kitty.conf
 ```
 
 ### 1.1 Zsh
