@@ -178,7 +178,6 @@ Micromamba is a lightweight package manager CLI utility used primarily for Pytho
 ```zsh
 cd
 "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
-ln -s $HOME/config_files/mamba/.mambarc ./.mambarc
 ```
 
 You may also want to install miniforge. Currently, exporting an environment that includes pip packages is unsupported. When installing, do not enable mamba initialization as the `.zshrc` already addresses this with an alias.
@@ -225,10 +224,12 @@ nvm install --lts
 
 #### 1.5.2 Rust
 
-A compiled language for low-level software development. Can be installed through rust-up.
+A compiled language for low-level software development. Can be installed through rust-up or from the Fedora repos.
 
 ```zsh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# or
+# sudo dnf install cargo rust
 ```
 
 You may need to restart your shell.
