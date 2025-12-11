@@ -244,11 +244,15 @@ sudo dnf install zathura zathura-pdf-mupdf
 ln -s $HOME/config_files/zathura/zathurarc ./zathura/zathurarc
 ```
 
-### 1.6 Docker
+### 1.6 Containers
 
-Docker is a platform for developing, building, and running container applications.
+Podman and Docker are platforms for developing, building, and running container applications.
 
-To install, follow the instructions from [this link](https://docs.docker.com/engine/install/fedora/).
+To install:
+
+```zsh
+sudo dnf install podman-docker
+```
 
 #### 1.6.1 Portainer
 
@@ -276,7 +280,11 @@ wget -qO - https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_am
 rm $HOME/.local/bin/LICENSE $HOME/.local/bin/README.md
 ```
 
-#### 1.6 LSD
+#### 1.6.4 Distrobox / Distroshelf
+
+Distrobox makes it easy to run containerized applications (includes GUI applications). Distroshelf provides a UI to interact with Distrobox.
+
+#### 1.7 LSD
 
 A prettier alternative to the `ls` command.
 
@@ -440,3 +448,22 @@ Office suite included in most Linux distros. Configuration makes it similar to M
 - Icon Theme: Colibre Dark SVG
 - User Interface: Tabbed
 - Application Colors: LibreOffice Dark
+
+## 10. Disk Encryption
+
+Make sure you encrypt the home partition of your boot drive when installing Fedora. The partition itself will follow the LUKS format, but will show up as a btrfs partition on decryption. You can follow [this guide](https://fedoramagazine.org/automatically-decrypt-your-disk-using-tpm2/) to enroll the key to the TPM 2.0 chip.
+
+You must first setup clevis.
+
+```zsh
+sudo dnf install clevis clevis-luks clevis-dracut clevis-udisks2 clevis-systemd
+sudo dracut -fv --regenerate-all
+sudo systemctl reboot
+```
+
+Now you may enroll the keys.
+```zsh
+sudo clevis luks bind -d /dev/nvme0n1p3 tpm2 '{"pcr_ids":"1,4,5,7"}'
+```
+
+You may also include PCR 9, but you would have to rebind the partition after every kernel update. See the guide for more details.
